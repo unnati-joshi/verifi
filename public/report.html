@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Report · verifi</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script src="/js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header id="app-header" class="topbar"><div class="container"></div></header>
+  <main class="page"><div class="container">
+    <div class="page-head no-print">
+      <div><a href="/reports.html" class="small muted">← Reports</a></div>
+      <div class="row">
+        <a class="btn btn-ghost btn-sm" id="rerun-btn" href="#">Edit and re-run</a>
+        <button class="btn btn-ghost btn-sm" id="print-btn">Download PDF</button>
+        <button class="btn btn-danger btn-sm" id="delete-btn">Delete</button>
+      </div>
+    </div>
+    <div id="report"><div class="skeleton tall"></div></div>
+    <section class="panel" id="inputs-card" style="margin-top:20px"></section>
+  </div></main>
+  <script type="module" src="/js/pages/report.js"></script>
+</body>
+</html>

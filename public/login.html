@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Sign in · verifi</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script src="/js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="auth">
+    <div class="auth-top">
+      <a class="brand" href="/"><svg class="mark" viewBox="0 0 28 21" aria-hidden="true"><rect class="b" x="0" y="11" width="4" height="10" rx="1.5"/><rect class="b" x="6" y="15" width="4" height="6" rx="1.5"/><rect class="b" x="12" y="18" width="4" height="3" rx="1.5"/><rect class="b" x="18" y="8" width="4" height="13" rx="1.5"/><rect class="a" x="24" y="0" width="4" height="21" rx="1.5"/></svg>verifi</a>
+      <button class="icon-btn" id="theme-btn" type="button"></button>
+    </div>
+    <main class="auth-main">
+      <div class="auth-box">
+        <h1 id="auth-title">Sign in</h1>
+        <p class="sub" id="auth-sub">Pick up where you left off.</p>
+
+        <div id="auth-alert" class="alert alert-error hidden" role="alert"></div>
+
+        <div id="google-block">
+          <a class="btn btn-ghost btn-block btn-lg google-btn" href="/api/auth/google"><img src="/assets/google.svg" alt="">Continue with Google</a>
+          <div class="divider">or</div>
+        </div>
+
+        <form id="auth-form" novalidate>
+          <div class="field hidden" id="name-field">
+            <label for="name">Full name</label>
+            <input class="input" id="name" name="name" autocomplete="name" maxlength="80">
+            <span class="error"></span>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input class="input" id="email" name="email" type="email" autocomplete="email" required>
+            <span class="error"></span>
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <input class="input" id="password" name="password" type="password" autocomplete="current-password" required minlength="8">
+            <span class="hint hidden" id="pw-hint">At least 8 characters, including a letter and a number.</span>
+            <span class="error"></span>
+          </div>
+          <button class="btn btn-primary btn-block btn-lg" id="submit-btn" type="submit">Sign in</button>
+        </form>
+
+        <p class="switch"><span id="switch-text">No account yet?</span> <a href="#" id="switch-link">Create one</a></p>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="/js/pages/login.js"></script>
+</body>
+</html>

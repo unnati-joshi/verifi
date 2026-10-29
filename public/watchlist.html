@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Watchlist · verifi</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script src="/js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header id="app-header" class="topbar"><div class="container"></div></header>
+  <main class="page"><div class="container">
+    <div class="page-head">
+      <div><h1>Watchlist</h1><p>Lenders, insurers and UPI IDs you want to keep track of.</p></div>
+      <button class="btn btn-primary" id="add-btn">Add entry</button>
+    </div>
+    <div class="panel hidden" id="add-card" style="margin-bottom:20px">
+      <form id="watch-form" novalidate>
+        <div class="panel-body form-grid">
+          <div class="field"><label for="w-name">Name</label><input class="input" id="w-name" name="name" maxlength="120"><span class="error"></span></div>
+          <div class="field"><label for="w-type">Product</label>
+            <select class="input" id="w-type" name="productType"><option value="loan">Loan</option><option value="insurance">Insurance</option><option value="upi">UPI</option></select><span class="error"></span></div>
+          <div class="field"><label for="w-id">Identifier <span class="req">optional</span></label><input class="input" id="w-id" name="identifier" maxlength="200" placeholder="UPI ID, registration number, website"><span class="error"></span></div>
+          <div class="field"><label for="w-notes">Notes <span class="req">optional</span></label><input class="input" id="w-notes" name="notes" maxlength="1000"><span class="error"></span></div>
+        </div>
+        <div class="form-actions"><button class="btn btn-primary" type="submit" id="w-save">Add to watchlist</button><button class="btn btn-ghost" type="button" id="w-cancel">Cancel</button></div>
+      </form>
+    </div>
+    <div class="panel"><div class="table-wrap" id="watch-table"><div class="skeleton mid"></div></div></div>
+  </div></main>
+  <script type="module" src="/js/pages/watchlist.js"></script>
+</body>
+</html>

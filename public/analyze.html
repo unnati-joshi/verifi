@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>New check · verifi</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script src="/js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header id="app-header" class="topbar"><div class="container"></div></header>
+  <main class="page"><div class="container">
+    <div class="page-head">
+      <div><h1>New check</h1><p>Fill in what you know. Leave a field blank if you are not sure.</p></div>
+      <div class="segmented" role="tablist" id="type-tabs"></div>
+    </div>
+    <div class="analyze-layout">
+      <form class="panel" id="analyze-form" novalidate>
+        <div id="form-fields"><div class="skeleton tall"></div></div>
+        <div class="form-actions">
+          <button class="btn btn-primary btn-lg" type="submit" id="run-btn">Run check</button>
+          <button class="btn btn-ghost btn-lg" type="reset">Clear</button>
+        </div>
+      </form>
+      <div class="sticky">
+        <div id="result"></div>
+        <div class="panel save-bar no-print hidden" id="save-bar">
+          <select class="input" id="watch-select" aria-label="Link to a watchlist entry"></select>
+          <button class="btn btn-primary" id="save-btn">Save report</button>
+          <p class="small muted hidden" id="anon-note"><a href="/login.html?mode=register">Create an account</a> to save reports and keep a watchlist.</p>
+        </div>
+      </div>
+    </div>
+  </div></main>
+  <script type="module" src="/js/pages/analyze.js"></script>
+</body>
+</html>

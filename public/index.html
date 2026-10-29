@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>verifi — check loans, insurance and UPI payments before you commit</title>
+  <meta name="description" content="verifi scores loans, insurance policies and UPI payment requests on trust, transparency, risk and complexity, using open, rule-based checks.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script src="/js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header id="app-header" class="topbar"><div class="container"></div></header>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1 id="hero-title">Check the offer before you sign it.</h1>
+          <p class="lead hero-fade">verifi reads the terms of a loan, an insurance policy or a UPI payment request, runs them against regulatory norms and known fraud patterns, and tells you plainly what is wrong with it.</p>
+          <div class="row hero-fade">
+            <a class="btn btn-primary btn-lg" id="hero-cta" href="/login.html?mode=register">Create an account</a>
+            <a class="btn btn-ghost btn-lg" href="/analyze.html">Run a check without signing up</a>
+          </div>
+          <dl class="hero-stats hero-fade">
+            <div><dt class="label">Rules</dt><dd class="mono" data-count="rules">0</dd></div>
+            <div><dt class="label">Products</dt><dd class="mono" data-count="products">0</dd></div>
+            <div><dt class="label">Scores</dt><dd class="mono" data-count="scores">0</dd></div>
+          </dl>
+        </div>
+        <div class="spec hero-fade" id="spec">
+          <div class="spec-head"><span class="label">Scoring model</span><span class="label" id="spec-version"></span></div>
+          <pre id="spec-formula" aria-live="off"></pre>
+          <table id="spec-bands"></table>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Try it on a UPI ID.</h2>
+          <p>Type any UPI ID you have been asked to pay. This quick look checks the ID alone. The full check also covers who contacted you and what they asked for.</p>
+        </div>
+        <div class="panel try reveal">
+          <label class="try-input">
+            <span class="sr-only">UPI ID</span>
+            <input id="try-upi" type="text" inputmode="email" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="name@bank" maxlength="320">
+          </label>
+          <div class="try-result" id="try-result" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Every rule, in the open.</h2>
+          <p>There is no model guessing behind the scenes. These are the exact checks the engine runs, and every finding in a report points back to one of them by ID.</p>
+        </div>
+        <div class="catalogue reveal" id="catalogue"><div class="skeleton tall"></div></div>
+        <div class="legend">
+          <span class="sev sev-critical">critical</span><span class="sev sev-high">high</span><span class="sev sev-medium">medium</span><span class="sev sev-low">low</span><span class="sev sev-positive">strength</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Four scores, one grade.</h2>
+          <p>Each check moves one or more scores up or down from a baseline. The scores are then weighted into a single safety score and an A–E grade.</p>
+        </div>
+        <div class="defs reveal" id="playground">
+          <div><span class="label">01 · higher is better</span><h3>Trust</h3><p>Is the provider regulated, accountable and behaving like a legitimate business?</p>
+            <div class="slider"><input type="range" min="0" max="100" value="85" data-dim="trust" aria-label="Trust"><output class="mono">85</output></div></div>
+          <div><span class="label">02 · higher is better</span><h3>Transparency</h3><p>Are costs, exclusions and terms disclosed upfront and in writing?</p>
+            <div class="slider"><input type="range" min="0" max="100" value="85" data-dim="transparency" aria-label="Transparency"><output class="mono">85</output></div></div>
+          <div><span class="label">03 · lower is better</span><h3>Risk</h3><p>How likely is a loss, whether from fraud, unaffordable payments or unfair terms?</p>
+            <div class="slider"><input type="range" min="0" max="100" value="15" data-dim="risk" aria-label="Risk"><output class="mono">15</output></div></div>
+          <div><span class="label">04 · lower is better</span><h3>Complexity</h3><p>How much hidden structure makes the product hard to compare or exit?</p>
+            <div class="slider"><input type="range" min="0" max="100" value="15" data-dim="complexity" aria-label="Complexity"><output class="mono">15</output></div></div>
+        </div>
+        <div class="panel play reveal">
+          <div class="play-score">
+            <span class="label">Resulting safety score</span>
+            <div class="big mono"><span id="play-score">88</span><small>/100</small></div>
+          </div>
+          <div class="play-meta">
+            <div class="verdict"><span class="grade grade-A" id="play-grade">A</span><div><strong id="play-verdict">Low risk</strong><span class="muted small">Drag the sliders above to see how the grade responds.</span></div></div>
+            <label class="check flag play-crit"><input type="checkbox" id="play-critical"><span>Add one critical finding (caps the score at 39)</span></label>
+          </div>
+          <div class="scale play-scale" aria-hidden="true">
+            <div class="track"><div class="bands"><span></span><span></span><span></span><span></span><span></span></div><div class="pin" id="play-pin"></div></div>
+            <div class="ticks"><span>E 0</span><span>D 40</span><span>C 55</span><span>B 70</span><span>A 85</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="container row">
+        <h2>Got a loan offer, a policy or a payment request in front of you? Check it first.</h2>
+        <a class="btn btn-primary btn-lg" href="/analyze.html">Start a check</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <span>verifi · financial risk intelligence</span>
+      <span>Reports are informational and are not financial advice.</span>
+    </div>
+  </footer>
+  <script type="module" src="/js/pages/landing.js"></script>
+</body>
+</html>
